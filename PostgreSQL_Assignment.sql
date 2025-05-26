@@ -85,9 +85,11 @@ UPDATE species set conservation_status = 'Historic' WHERE  extract(year from dis
 
 
 -- problem 8
+CREATE view timeofday
+as
+SELECT sighting_id , extract(HOUR from sighting_time::time) as "time_of_day " FROM sightings;
 
-SELECT sighting_id , extract(HOUR from sighting_time::time) as "time_of_day ",* FROM sightings;
-
+SELECT * FROM timeofday;
 -- problem 9
 
 DELETE FROM rangers
