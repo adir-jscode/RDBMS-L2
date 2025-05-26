@@ -21,8 +21,8 @@ CREATE TABLE sightings (
 );
 
 ##  What is the difference between VARCHAR and CHAR?
-VARCHAR : VARCHAR হল এমন একটি স্ট্রিং টাইপ যা ভ্যারিয়েবল দৈর্ঘ্যের হয়। এটি যতটুকু ক্যারেক্টার দেওয়া হয় ততটুকুই জায়গা ব্যবহার করে।
-CHAR(n) :  CHAR হল একটি ফিক্সড দৈর্ঘ্যের স্ট্রিং টাইপ যা সর্বদা n সংখ্যক ক্যারেক্টার জায়গা নেয়, এমনকি যদি ডেটা ছোটও হয়।
+* VARCHAR : VARCHAR হল এমন একটি স্ট্রিং টাইপ যা ভ্যারিয়েবল দৈর্ঘ্যের হয়। এটি যতটুকু ক্যারেক্টার দেওয়া হয় ততটুকুই জায়গা ব্যবহার করে।
+* CHAR(n) :  CHAR হল একটি ফিক্সড দৈর্ঘ্যের স্ট্রিং টাইপ যা সর্বদা n সংখ্যক ক্যারেক্টার জায়গা নেয়, এমনকি যদি ডেটা ছোটও হয়।
 
 * যদি ফিল্ডের দৈর্ঘ্য বিভিন্ন হয় তাহলে VARCHAR ব্যবহার করা ভালো।
 * যদি সবসময় নির্দিষ্ট দৈর্ঘ্য দরকার হয়, তখন CHAR উপযোগী।
@@ -34,9 +34,9 @@ CREATE TABLE Department (
 ## What is the purpose of the WHERE clause in a SELECT statement?
 WHERE ক্লজ একটি শর্তের ভিত্তিতে রেকর্ড ফিল্টার করে। Select ক্যোয়ারী একটি টেবিল থেকে সমস্ত সারি ফেরত দেয়।
 WHERE দিয়ে:
-১. নির্দিষ্ট অবস্থান বা শর্ত অনুযায়ী ডেটা ফিল্টার করা যায়
-২. কমপ্লেক্স কন্ডিশন (AND, OR, NOT) প্রয়োগ করা যায়
-৩. তুলনামূলক অপারেটর (=, >, <, LIKE) ব্যবহার করা যায়
+* নির্দিষ্ট অবস্থান বা শর্ত অনুযায়ী ডেটা ফিল্টার করা যায়
+* কমপ্লেক্স কন্ডিশন (AND, OR, NOT) প্রয়োগ করা যায়
+* তুলনামূলক অপারেটর (=, >, <, LIKE) ব্যবহার করা যায়
 
 SELECT * FROM person WHERE name = 'Adir';
 
@@ -44,10 +44,10 @@ SELECT * FROM person WHERE name = 'Adir';
 Aggregate ফাংশনগুলি সারিগুলির একটি সেটে একটি গণনা সম্পাদন করতে এবং একক মান ফেরত দিতে ব্যবহৃত হয়।
 এটি সাধারণত GROUP BY ক্লজের সাথে ব্যবহার করা হয়।
 
-COUNT() – কতগুলো রো আছে তা গণনা করে।
-SUM() – সব ভ্যালুর যোগফল বের করে।
-AVG() – গড় মান বের করে।
+* COUNT() – কতগুলো রো আছে তা গণনা করে।
+* SUM() – সব ভ্যালুর যোগফল বের করে।
+* AVG() – গড় মান বের করে।
 
-SELECT COUNT(*) FROM Products;
-SELECT SUM(Quantity) FROM OrderDetails;
-SELECT AVG(Price) FROM Products;
+* SELECT COUNT(*) FROM Products;
+* SELECT SUM(Quantity) FROM OrderDetails;
+* SELECT AVG(Price) FROM Products;
