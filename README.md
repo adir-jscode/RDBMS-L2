@@ -40,4 +40,14 @@ WHERE দিয়ে:
 
 SELECT * FROM person WHERE name = 'Adir';
 
+## How can you calculate aggregate functions like COUNT(), SUM(), and AVG() in PostgreSQL?
+Aggregate ফাংশনগুলি সারিগুলির একটি সেটে একটি গণনা সম্পাদন করতে এবং একক মান ফেরত দিতে ব্যবহৃত হয়।
+এটি সাধারণত GROUP BY ক্লজের সাথে ব্যবহার করা হয়।
 
+COUNT() – কতগুলো রো আছে তা গণনা করে।
+SUM() – সব ভ্যালুর যোগফল বের করে।
+AVG() – গড় মান বের করে।
+
+SELECT COUNT(*) FROM Products;
+SELECT SUM(Quantity) FROM OrderDetails;
+SELECT AVG(Price) FROM Products;
