@@ -54,39 +54,41 @@ VALUES
 INSERT INTO rangers (name,region) VALUES
 ('Derek Fox','Coastal Plains');
 
--- problem 2 PPPP
+-- problem 2
+SELECT COUNT( DISTINCT sightings.species_id) AS unique_species_sighted
+FROM sightings
+JOIN species ON species.species_id = sightings.species_id;
 
-SELECT * FROM sightings
-JOIN species on species.species_id = sightings.sighting_id;
-SELECT DISTINCT common_name FROM sightings
-JOIN species on species.species_id = sightings.sighting_id;
-
--- 3️⃣ Find all sightings where the location includes "Pass".
+-- problem 3
 
 SELECT * FROM sightings WHERE location LIKE '%Pass';
 
--- 4️⃣ List each ranger's name and their total number of sightings.
+-- problem 4
 
 SELECT name,count(sightings.sighting_id) FROM rangers
 JOIN sightings on  rangers.ranger_id = sightings.ranger_id 
 GROUP BY rangers.name;
 
--- 5️⃣ List species that have never been sighted.
+-- problem 5
 SELECT common_name FROM sightings
 JOIN species on species.species_id = sightings.sighting_id
 WHERE species.species_id NOT in (sightings.species_id);
 
--- 6️⃣ Show the most recent 2 sightings.
+-- problem 6
 SELECT common_name,sighting_time,name FROM sightings
 JOIN rangers on rangers.ranger_id = sightings.sighting_id
 JOIN species on species.species_id = sightings.sighting_id
-ORDER BY sighting_time DESC;
+ORDER BY sighting_time DESC LIMIT 2;
 
--- 7️⃣ Update all species discovered before year 1800 to have status 'Historic'.
+-- problem 7
+UPDATE species set conservation_status = 'Historic' WHERE  extract(year from discovery_date::date) <1800;
 
--- 8️⃣ Label each sighting's time of day as 'Morning', 'Afternoon', or 'Evening'.
 
--- 9️⃣ Delete rangers who have never sighted any species
+-- problem 8
+
+SELECT sighting_id , extract(HOUR from sighting_time::time) as "time_of_day ",* FROM sightings;
+
+-- problem 9
 
 DELETE FROM rangers
 WHERE ranger_id = (SELECT rangers.ranger_id FROM rangers
